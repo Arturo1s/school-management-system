@@ -1,6 +1,11 @@
 # School Management System
 
-**We decided to create a web application for managing school operations efficiently. It's the continuation of the Software Engineering project.**
+## Our Team
+- Marius Loérat
+- Eve Pineau
+- Arthur Puissilieux
+
+**We chose to create a web application for managing school operations efficiently. It's the continuation of our Software Engineering.**
 
 ## Features
 - Student, Teacher, and Admin portals.
