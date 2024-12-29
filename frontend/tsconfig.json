@@ -11,7 +11,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitAny": true,
-    "typeRoots": ["./node_modules/@types", "./types"],
+    "typeRoots": [
+      "../node_modules/@types", "./types"],
     "types": ["react", "react-dom", "node", "axios", "@mui/x-data-grid", "react-router-dom"]
   },
   "include": ["src"]

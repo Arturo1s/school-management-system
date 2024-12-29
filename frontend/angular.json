@@ -1,20 +1,24 @@
 {
-  "projects": {
-    "frontend": {
-      "projectType": "application",
-      "root": "",
-      "sourceRoot": "src",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/frontend",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts"
-          }
-        }
-      }
-    }
-  }
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["dom", "es6"],
+    "outDir": "./out-tsc",
+    "sourceMap": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.html",
+    "src/**/*.css",
+    "src/assets/**"
+  ]
 }
+

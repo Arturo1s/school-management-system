@@ -1,23 +1,52 @@
 import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import { sequelize } from './database';
+import authRoutes from './routes/auth.routes';
+import adminRoutes from './routes/admin.routes';
 import studentRoutes from './routes/student.routes';
 import teacherRoutes from './routes/teacher.routes';
-import adminRoutes from './routes/admin.routes';
+import { connectDB } from './database';
 
 const app = express();
-const PORT = 3000;
 
-app.use(express.json());
-app.use('/api/students', studentRoutes);
-app.use('/api/teachers', teacherRoutes);
-app.use('/api/admins', adminRoutes);
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
 
-// Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(require('./swagger.json')));
+// Swagger setup
+const swaggerOptions = {
+    swaggerDefinition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'School Management System API',
+            version: '1.0.0',
+            description: 'API documentation for the School Management System',
+        },
+        servers: [
+            {
+                url: 'http://localhost:5000',
+            },
+        ],
+    },
+    apis: ['./src/routes/*.ts'], // Path to the API docs
+};
 
-// Database Connection and Start Server
-sequelize.sync({ force: false }).then(() => {
-    console.log('Database connected successfully!');
-    app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
-}).catch((error: any) => console.error('DB Connection Failed:', error));
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+// Routes
+app.use('/auth', authRoutes);
+app.use('/admin', adminRoutes);
+app.use('/student', studentRoutes);
+app.use('/teacher', teacherRoutes);
+
+// Connect to the database
+connectDB();
+
+// Start the server
+const PORT = 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
