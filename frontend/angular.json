@@ -1,0 +1,20 @@
+{
+  "projects": {
+    "frontend": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/frontend",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts"
+          }
+        }
+      }
+    }
+  }
+}
