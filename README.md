@@ -9,8 +9,7 @@
 
 ## Features
 - Student, Teacher, and Admin portals.
-- CRUD functionalities for managing users and classes.
-- Attendance tracking, grades management, and class schedules.
+- Attendance tracking, grades management, and information about the user.
 - Secure role-based access control (RBAC).
 
 ## Project Structure
