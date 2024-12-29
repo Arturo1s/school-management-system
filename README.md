@@ -2,8 +2,8 @@
 
 ## Our Team
 - Marius Loérat
-- Eve Pineau
-- Arthur Puissilieux
+- Eve Pineau : evepineau
+- Arthur Puissilieux : Arturo1s
 
 **We chose to create a web application for managing school operations efficiently. It's the continuation of our Software Engineering.**
 
